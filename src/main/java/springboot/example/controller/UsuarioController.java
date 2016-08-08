@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import springboot.example.dto.UsuarioDTO;
+//import springboot.example.dto.UsuarioDTO;
 import springboot.example.model.Usuario;
 import springboot.example.service.UsuarioService;
 
@@ -22,19 +22,19 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	@ResponseBody
-	public List<UsuarioDTO> listarTodos() {
+	public List<Usuario> listarTodos() {
 		return service.listarTodos();
 	}
 
 	@RequestMapping(value = "/usuario/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public UsuarioDTO buscarPorId(@PathVariable("id") int id) {
+	public Usuario buscarPorId(@PathVariable("id") int id) {
 		return service.buscarPorId(id);
 	}
 
 	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
 	@ResponseBody
-	public UsuarioDTO registrarUsuario(@RequestBody Usuario usuario) {
+	public Usuario registrarUsuario(@RequestBody Usuario usuario) {
 		return service.registrarUsuario(usuario);
 	}
 

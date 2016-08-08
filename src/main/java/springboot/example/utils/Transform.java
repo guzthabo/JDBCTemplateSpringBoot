@@ -3,6 +3,7 @@ package springboot.example.utils;
 import springboot.example.dto.UsuarioDTO;
 import springboot.example.model.Usuario;
 
+@Deprecated
 public class Transform {
 
 	public static UsuarioDTO transformUsuario(Usuario usuario) {

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import springboot.example.model.Usuario;
 
+@Deprecated
 public class UsuarioRowMapper implements RowMapper<Usuario> {
 
 	@Override

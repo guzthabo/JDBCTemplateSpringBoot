@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -15,7 +16,8 @@ import org.springframework.stereotype.Repository;
 
 import springboot.example.dao.UsuarioDAO;
 import springboot.example.model.Usuario;
-import springboot.example.utils.UsuarioRowMapper;
+
+//import springboot.example.utils.UsuarioRowMapper;
 
 @Repository
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -52,12 +54,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public Usuario getById(Integer id) {
 		return jdbcTemplate.queryForObject("select * from usuario where id = ?", new Object[] { id },
-				new UsuarioRowMapper());
+				new BeanPropertyRowMapper<Usuario>(Usuario.class));
 	}
 
 	@Override
 	public List<Usuario> findAll() {
-		return jdbcTemplate.query("select * from usuario", new UsuarioRowMapper());
+		return jdbcTemplate.query("select * from usuario", new BeanPropertyRowMapper<Usuario>(Usuario.class));
 	}
 
 	@Override
